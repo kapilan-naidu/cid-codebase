@@ -30,6 +30,8 @@ templateContent = templateContent.replace("<!-- IMAGES_PLACEHOLDER -->", imagesH
 fs.writeFileSync(outputFile, templateContent);
 
 // Copy images & stylesheets to the output directory
+fs.emptyDirSync(outputDir, "images");
+
 fs.copySync(imagesDir, path.join(outputDir, "images"));
 fs.copySync(stylesDir, path.join(outputDir, "css"));
 
