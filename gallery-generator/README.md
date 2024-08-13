@@ -20,7 +20,7 @@ This is a simple static site generator that creates an image gallery from a dire
 4. Generate the gallery:
    ```
     npm run build
-5. View the generated site files in the` dist` directory.
+5. View the generated site files in the `dist` directory.
    
 ## Customization
 
