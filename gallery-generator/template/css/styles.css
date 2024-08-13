@@ -1,0 +1,126 @@
+/* GLOBAL VARIABLES */
+
+:root {
+  /* Light Mode Colors */
+  @media (prefers-color-scheme: light) {
+    --c-bg: #e9f0f9;
+    --c-fg: #1b1a1f;
+    --c-outline: rgba(193, 210, 231, 0.25);
+    --c-hover: #34f;
+  }
+
+  /* Dark Mode Colors */
+  @media (prefers-color-scheme: dark) {
+    --c-bg: #1b1c1f;
+    --c-fg: #e9f0f9;
+    --c-outline: rgba(193, 210, 231, 0.15);
+    --c-hover: #68f;
+  }
+}
+
+/* MAIN LAYOUT */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  color: var(--c-fg);
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-kerning: normal;
+  line-height: normal;
+}
+
+body {
+  position: relative;
+
+  display: grid;
+  align-items: start;
+  width: clamp(360px, 100%, 1680px);
+  height: 100%;
+
+  padding: 4rem;
+  background: var(--c-bg);
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding-block: clamp(1rem, 15vh, 4rem) 6rem;
+  line-height: 1.6;
+
+  & a {
+    align-self: flex-end;
+    font-size: 0.9rem;
+  }
+}
+
+/* COMPONENT STYLING */
+
+h2 {
+  margin-top: 0;
+}
+
+a {
+  color: var(--c-fg);
+
+  &:hover {
+    color: var(--c-hover);
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  & img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+
+    border: solid thin var(--c-outline);
+    transition: all 300ms;
+  }
+  & img:hover {
+    scale: 1.025;
+    border: solid thin rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+  }
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 580px) {
+  body {
+    padding-inline: 2rem;
+  }
+
+  header {
+    flex-direction: column;
+    padding-block: 0 4rem;
+
+    & a {
+      align-self: flex-start;
+      margin-top: 1em;
+    }
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    & img:hover {
+      scale: 1;
+      border: solid thin var(--c-outline);
+    }
+  }
+}
