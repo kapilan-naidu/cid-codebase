@@ -28,4 +28,4 @@ You can change the titles and headings before building a gallery. Make the requi
 
 ## Deployment
 
-You can now deploy the generated static site to any hosting platform of your choice. It is recommended to optimize image files using a tool like imageOptim before running the `build` command.
+You can now deploy the generated static site to any hosting platform of your choice. It is recommended to optimize image files using a tool such as [imageOptim](https://imageoptim.com/mac) before running the `build` command.
