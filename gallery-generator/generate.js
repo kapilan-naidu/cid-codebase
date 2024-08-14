@@ -29,10 +29,12 @@ templateContent = templateContent.replace("<!-- IMAGES_PLACEHOLDER -->", imagesH
 // Write the final HTML to the output file
 fs.writeFileSync(outputFile, templateContent);
 
-// Copy images & stylesheets to the output directory
-fs.emptyDirSync(outputDir, "images");
+// Ensure the output images directory exists and is empty
+const outputImagesDir = path.join(outputDir, "images");
+fs.emptyDirSync(outputImagesDir);
 
-fs.copySync(imagesDir, path.join(outputDir, "images"));
+// Copy images & stylesheets to the output directory
+fs.copySync(imagesDir, outputImagesDir);
 fs.copySync(stylesDir, path.join(outputDir, "css"));
 
 console.log("Gallery generated successfully!");
